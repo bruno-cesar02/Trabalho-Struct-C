@@ -6,7 +6,7 @@ Projeto desenvolvido para a disciplina de **Algoritmos e Linguagem de Programaç
 
 - Arthur Sebastian – RA:   
 - Bruno César – RA: XXXXXXXX  
-- Gustavo Lieb – RA: XXXXXXXX  
+- Gustavo Lieb – RA: 24023376
 
 ## 🧠 Objetivo
 
