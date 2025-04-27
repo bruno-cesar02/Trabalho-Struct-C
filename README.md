@@ -4,9 +4,9 @@ Projeto desenvolvido para a disciplina de **Algoritmos e Linguagem de Programaç
 
 ## 👨‍💻 Integrantes do Grupo
 
-- Nome 1 – RA: XXXXXXXX  
-- Nome 2 – RA: XXXXXXXX  
-- Nome 3 – RA: XXXXXXXX  
+- Arthur Sebastian – RA:   
+- Bruno César – RA: XXXXXXXX  
+- Gustavo Lieb – RA: XXXXXXXX  
 
 ## 🧠 Objetivo
 
