@@ -5,7 +5,7 @@ Projeto desenvolvido para a disciplina de **Algoritmos e Linguagem de Programaç
 ## 👨‍💻 Integrantes do Grupo
 
 - Arthur Sebastian – RA:   
-- Bruno César – RA: XXXXXXXX  
+- Bruno César – RA: 24795502
 - Gustavo Lieb – RA: 24023376
 
 ## 🧠 Objetivo
