@@ -209,6 +209,38 @@ void Devolver () {
 
 }
 
+void remover(){
+    if(tamanho_livros == 0){
+        printf("Nao tem livros para serem removidos\n");
+        pausarTela();
+        return;
+    }
+
+    int id_remover;
+
+    printf("Digite o ID do livro que deseja remover: ");
+    scanf("%d", &id_remover);
+
+    for(int i = 0; i<tamanho_livros; i++){
+        if(total_livros[i].id == id_remover)
+        {
+            total_livros[i] = total_livros[tamanho_livros - 1];
+
+            tamanho_livros --;
+
+            printf("Livro com id %d Removido com sucesso!",id_remover);
+            pausarTela();
+
+            return;
+        }
+    }
+    printf("O livro com ID %d nao foi encontrado no sistema", id_remover);
+    pausarTela();
+    return;
+
+}
+
+
 //FUNCAO PARA LIMPAR O TERMINAL
 void limparTela() {
     #ifdef _WIN32
@@ -269,8 +301,8 @@ int main() {
                 Devolver();
                 break;
             case 6:
-                system("cls");    // Funcao para limpar o terminal 
-                //remover livro
+                limparTela();    // Funcao para limpar o terminal 
+                remover(); //remover livro
                 break;
             case 7:
                 limparTela();
