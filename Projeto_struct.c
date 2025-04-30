@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include<stdlib.h>
 
 // Criar struct
 struct Biblioteca {
@@ -18,8 +19,15 @@ struct Biblioteca total_livros[100];
 int tamanho_livros = 0;
 
 
-// Função cadastrar
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
+// Função cadastrar #1
 void Cadastrar() {
+    
+
     int novo_id;
     printf("Digite o id: ");
     scanf("%d", &novo_id);
@@ -49,10 +57,16 @@ void Cadastrar() {
 
     total_livros[tamanho_livros].qntd = 1;
     tamanho_livros++;
+
+    printf("Livro Cadastrado com sucesso\n");
+    pausarTela();
 }
 
-// Busca livro pelo ID
+// Busca livro pelo ID #2
 void Consultar() {
+    
+    limparBuffer();
+
     int id_con;
     printf("Digite o ID desejado: ");
     scanf("%d", &id_con);
@@ -65,17 +79,21 @@ void Consultar() {
             printf("Ano: %d\n", total_livros[i].ano);
             printf("ID: %d\n", total_livros[i].id);
             printf("Quantidade: %d\n", total_livros[i].qntd);
+            pausarTela();
             return;
         }
     }
 
     printf("Livro com ID %d nao encontrado.\n", id_con);
+    pausarTela();
 }
 
-// Mostra todos os livros cadastrados
+// Mostra todos os livros cadastrados #2
 void Listar() {
+    
     if (tamanho_livros == 0) {
         printf("Nenhum livro cadastrado.\n");
+        pausarTela();
         return;
     }
 
@@ -87,13 +105,16 @@ void Listar() {
         printf("ID: %d\n", total_livros[i].id);
         printf("Quantidade: %d\n\n", total_livros[i].qntd);
     }
+    pausarTela();
 }
 
-// Função para realizar o emprestimo
+// Função para realizar o emprestimo #3
 void Emprestar() {
+    
 
     if (tamanho_livros == 0) {
         printf("Nenhum livro cadastrado.\n");
+        pausarTela();
         return;
     }
 
@@ -136,13 +157,17 @@ void Emprestar() {
     if (encontrado == false) {
         printf ("ID %d nao encontrado.", id_emp);
     }
+    pausarTela();
 
 }
 
+//Função para devolver livros #4
 void Devolver () {
+    
 
     if (tamanho_livros == 0) {
         printf ("Nao ha livros cadastrados.\n");
+        pausarTela();
         return;
     }
 
@@ -180,40 +205,80 @@ void Devolver () {
     if (encontrou == false) {
         printf ("ID nao encontrado.\n");
     }
+    pausarTela();
 
 }
+
+//FUNCAO PARA LIMPAR O TERMINAL
+void limparTela() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+void pausarTela() {
+    printf("\nPressione ENTER para continuar...");
+    getchar(); // tira o ultimo enter digitado
+    getchar(); // esse espera o proximo enter q o usuario vai digitar
+}
+
+
 
 // Menu
 int main() {
     int opcao;
-
-    do {
-        printf("\n===== MENU BIBLIOTECA =====\n");
-        printf("1. Cadastrar livro\n");
-        printf("2. Consultar livro por ID\n");
-        printf("3. Listar todos os livros\n");
-        printf("0. Sair\n");
+    do
+    {   
+        limparTela();
+        printf("\n");
+        printf("=====================================\n");
+        printf("     SISTEMA DE BIBLIOTECA - MENU    \n");
+        printf("=====================================\n");
+        printf("  1 - Cadastrar livro\n");
+        printf("  2 - Consultar livro por ID\n");
+        printf("  3 - Listar todos os livros\n");
+        printf("  4 - Emprestar livro\n");
+        printf("  5 - Devolver livro\n");
+        printf("  6 - Remover livro\n");
+        printf("  7 - Sair do sistema\n");
+        printf("=====================================\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
-        switch (opcao) {
+        switch (opcao){
             case 1:
+                limparTela();
                 Cadastrar();
                 break;
             case 2:
+                limparTela();
                 Consultar();
                 break;
             case 3:
+                limparTela();
                 Listar();
                 break;
-            case 0:
-                printf("Saindo...\n");
+            case 4:
+                limparTela();
+                Emprestar();
                 break;
-            default:
-                printf("Opcao invalida! Tente novamente.\n");
+            case 5:
+                limparTela();
+                Devolver();
+                break;
+            case 6:
+                system("cls");    // Funcao para limpar o terminal 
+                //remover livro
+                break;
+            case 7:
+                limparTela();
+                printf("Encerrando Sistema... ate logo");
+                break;
         }
-
-    } while (opcao != 0);
+    
+    } while (opcao != 7);
 
     return 0;
 }
