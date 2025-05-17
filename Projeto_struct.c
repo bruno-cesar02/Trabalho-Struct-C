@@ -139,16 +139,18 @@ void Emprestar() {
                         strcpy(total_livros[i].emprestimo[j], nome_emprestimo);
                         total_livros[i].qntd--;
                         printf ("Livro emprestado com sucesso!\n");
+                        pausarTela();
                         return;
                     }
                 }
 
                 printf ("Total de livros para emprestimo atingido.\n");
-
+                pausarTela();
             }
 
             else {
                 printf ("Nao ha quantidade de livros suficiente para emprestimo.");
+                pausarTela();
             }
         }
 
@@ -192,6 +194,12 @@ void Devolver () {
                     strcpy(total_livros[i].emprestimo[j], "");
                     total_livros[i].qntd++;
                     printf ("Livro devolvido com sucesso!\n");
+                    pausarTela();
+                    return;
+                }
+                else{
+                    printf("Nome nao existe no sistema");
+                    pausarTela();
                     return;
                 }
             }
