@@ -35,8 +35,9 @@ void Cadastrar() {
     // Verifica se ID já existe
     for (int i = 0; i < tamanho_livros; i++) {
         if (total_livros[i].id == novo_id) {
-            printf("Livro já cadastrado. Aumentando quantidade...\n");
+            printf("Livro ja cadastrado. Aumentando quantidade...\n");
             total_livros[i].qntd++;
+            pausarTela();
             return;
         }
     }
@@ -205,6 +206,7 @@ void Devolver () {
             }
 
             printf ("Nome nao encontrado na lista de emprestimos.\n");
+            pausarTela();
             return;
 
         }
@@ -316,6 +318,9 @@ int main() {
                 limparTela();
                 printf("Encerrando Sistema... ate logo");
                 break;
+            default:
+                printf("Opcao Invalida");
+                pausarTela();
         }
     
     } while (opcao != 7);
