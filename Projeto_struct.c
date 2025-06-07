@@ -3,7 +3,7 @@
 #include<stdlib.h>
 
 // Criar struct
-struct Biblioteca {
+struct Livros {
     char titulo[100];
     char autor[100];
     int numero_pag;
@@ -15,7 +15,7 @@ struct Biblioteca {
 };
 
 // Variavel global para o tamanho do vetor
-struct Biblioteca total_livros[100];
+struct  Livros total_livros[100];
 int tamanho_livros = 0;
 
 
@@ -26,7 +26,8 @@ void limparBuffer() {
 
 // Função cadastrar #1
 void Cadastrar() {
-    
+    int opc;
+    int qtd;
 
     int novo_id;
     printf("Digite o id: ");
@@ -35,8 +36,29 @@ void Cadastrar() {
     // Verifica se ID já existe
     for (int i = 0; i < tamanho_livros; i++) {
         if (total_livros[i].id == novo_id) {
-            printf("Livro já cadastrado. Aumentando quantidade...\n");
-            total_livros[i].qntd++;
+            printf("Livro ja cadastrado.\n");
+            printf("Deseja adicionar apenas mais 1 ou uma quantidade especifica\n");
+            printf("1 - aumentar em 1\n");
+            printf("2 - adicionar uma quantidade especifica\n");
+            printf("digite a opcao: \n");
+            scanf("%d", &opc);
+
+            switch (opc){
+                case 1:
+                    printf("Aumentando quantidade em mais 1...");
+                    total_livros[i].qntd++;
+                    pausarTela();
+                    return;
+                
+                case 2: 
+                    printf("digite a quantidade de livros: ");
+                    scanf("%d", &qtd);
+                    total_livros[i].qntd += qtd;
+                    printf("livros adicionados com sucesso!!!");
+                    pausarTela();
+                    return;
+            }
+            
             return;
         }
     }
@@ -55,7 +77,12 @@ void Cadastrar() {
     printf("Digite o ano de publicacao: ");
     scanf("%d", &total_livros[tamanho_livros].ano);
 
-    total_livros[tamanho_livros].qntd = 1;
+    printf("digite a quantidade: ");
+    scanf("%d", &qtd);
+
+    
+     
+    total_livros[tamanho_livros].qntd += qtd;
     tamanho_livros++;
 
     printf("Livro Cadastrado com sucesso\n");
@@ -276,12 +303,12 @@ int main() {
         printf("=====================================\n");
         printf("     SISTEMA DE BIBLIOTECA - MENU    \n");
         printf("=====================================\n");
-        printf("  1 - Cadastrar livro\n");
+        printf("  1 - Cadastrar livros\n");
         printf("  2 - Consultar livro por ID\n");
         printf("  3 - Listar todos os livros\n");
         printf("  4 - Emprestar livro\n");
         printf("  5 - Devolver livro\n");
-        printf("  6 - Remover livro\n");
+        printf("  6 - Remover livros\n");
         printf("  7 - Sair do sistema\n");
         printf("=====================================\n");
         printf("Escolha uma opcao: ");
