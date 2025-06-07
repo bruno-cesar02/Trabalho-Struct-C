@@ -232,6 +232,7 @@ void Devolver () {
             }
 
             printf ("Nome nao encontrado na lista de emprestimos.\n");
+            pausarTela();
             return;
 
         }
@@ -343,6 +344,9 @@ int main() {
                 limparTela();
                 printf("Encerrando Sistema... ate logo");
                 break;
+            default:
+                printf("Opcao Invalida");
+                pausarTela();
         }
     
     } while (opcao != 7);
