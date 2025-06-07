@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include<stdlib.h>
+/*
+MEMBROS DO GRUPO:
+Arthur Sebastian – RA: 24795528
+Bruno César – RA: 24795502
+Gustavo Lieb – RA: 24023376
+
+*/
 
 // Criar struct
 struct Livros {
